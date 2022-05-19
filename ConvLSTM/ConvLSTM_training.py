@@ -151,7 +151,6 @@ for epoch in range(1, num_epochs+1):
     with io.BytesIO() as gif:
         new_target = np.array(target[0, :, :, :].unsqueeze(0))* 255.0
         new_target = new_target.transpose(0, 2, 3, 1)
-        print(target.shape)
         imageio.mimsave(gif, new_target, "target_gif_epoch" + str(epoch), fps = 5)    
         #target_gif = gif.getvalue()
 
