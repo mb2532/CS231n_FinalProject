@@ -146,14 +146,14 @@ for epoch in range(1, num_epochs+1):
         new_input = np.array(input[0, :, :, :, :]) * 255.0
         new_input = new_input.transpose(1, 2, 3, 0)
         imageio.mimsave(gif, new_input, "GIF", fps = 5)
-        imageio.mimwrite("input_gif_epoch" + str(epoch),video.astype(np.uint8),"GIF",fps=5)    
+        imageio.mimwrite("input_gif_epoch" + str(epoch), new_input,"GIF",fps=5)    
         #input_gif = gif.getvalue()
     # Write target video as gif
     with io.BytesIO() as gif:
         new_target = np.array(target[0, :, :, :].unsqueeze(0))* 255.0
         new_target = new_target.transpose(0, 2, 3, 1)
         imageio.mimsave(gif, new_target, "GIF", fps = 5)    
-        imageio.mimwrite("target_gif_epoch" + str(epoch),video.astype(np.uint8),"GIF",fps=5) 
+        imageio.mimwrite("target_gif_epoch" + str(epoch), new_target,"GIF",fps=5) 
         #target_gif = gif.getvalue()
 
     # Write output video as gif
@@ -161,7 +161,7 @@ for epoch in range(1, num_epochs+1):
         new_output = output[0, :, :, :].unsqueeze(0).detach().numpy()* 255.0
         new_output = new_output.transpose(0, 2, 3, 1)
         imageio.mimsave(gif, new_output, "GIF", fps = 5)  
-        imageio.mimwrite("output_gif_epoch" + str(epoch),video.astype(np.uint8),"GIF",fps=5) 
+        imageio.mimwrite("output_gif_epoch" + str(epoch), new_output,"GIF",fps=5) 
         #output_gif = gif.getvalue()
 
 
