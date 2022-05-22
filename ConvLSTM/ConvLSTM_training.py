@@ -36,8 +36,8 @@ from ipywidgets import widgets, HBox
 
 
 # These are some minimal variables used to configure and load the dataset:
-ucf_data_dir = "../UCF101_sample/UCF-101"
-ucf_label_dir = "../UCF101_sample/TrainTestList"
+ucf_data_dir = "../UCF101/UCF-101"
+ucf_label_dir = "../UCF101/TrainTestList"
 frames_per_clip =5
 step_between_clips = 5
 batch_size = 64
@@ -97,8 +97,8 @@ kernel_size=(3, 3), padding=(1, 1), activation="relu",
 frame_size=(64, 64), num_layers=3).to(device)
 
 ## CHANGE THIS IF LOADING IN PREVIOUS MODEL
-pretrained = False
-pretrained_path = 'ConvLSTMmodel_epoch0.pth'
+pretrained = True
+pretrained_path = 'ConvLSTMmodel_epoch20.pth'
 
 if pretrained == True: 
     model.load_state_dict(torch.load(pretrained_path))
