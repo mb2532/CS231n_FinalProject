@@ -98,7 +98,7 @@ frame_size=(64, 64), num_layers=3).to(device)
 
 ## CHANGE THIS IF LOADING IN PREVIOUS MODEL
 pretrained = True
-pretrained_path = 'ConvLSTMmodel_epoch20.pth'
+pretrained_path = 'ConvLSTMmodel_epoch_saved.pth'
 
 if pretrained == True: 
     model.load_state_dict(torch.load(pretrained_path))
@@ -138,7 +138,7 @@ for epoch in range(1, num_epochs+1):
         epoch, train_loss, val_loss))
     
     # Save intermediate pytorch model at every epoch
-    torch.save(model.state_dict(), 'ConvLSTMmodel_epoch' + str(epoch) + '.pth')
+    torch.save(model.state_dict(), 'ConvLSTMmodel_full_epoch_' + str(epoch) + '.pth')
 
     # Save intermediate gif results at every epoch
     # Write input video as gif
